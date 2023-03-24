@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".MainActivity_ThongTinTruyen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="60dp"
+        android:id="@+id/linearLayout1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="10dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:id="@+id/img_anhbia"
+                android:src="@drawable/ic_launcher_background" />
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/truyen_ten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="tên truyện"
+                    android:textColor="#138FF3"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="30dp" />
+
+
+                    <TextView
+                        android:id="@+id/truyen_TG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="tác giả"
+                        android:layout_marginVertical="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/truyen_XB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="nămXB"
+                        android:layout_marginVertical="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+
+
+
+                    <TextView
+                        android:id="@+id/truyen_LT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="LT"
+                        android:layout_marginVertical="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/truyen_views"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lượt xem"
+                        android:layout_marginVertical="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/truyen_MT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="Mô tả: ..............." />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/buttom_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/truyen_btn_doc"
+                android:text="đọc "/>
+
+            <Button
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="wrap_content"
+                android:background="@drawable/buttom_bg2"
+                android:layout_height="wrap_content"
+                android:id="@+id/truyen_btn_yeuthich"
+                android:text="yêu thích "/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/rcv_cmt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/truyen_edt_cmt"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="40dp"
+            android:paddingHorizontal="15dp"
+            android:background="@drawable/item_bg"
+            android:hint="Bình Luận" >
+        </EditText>
+        <Button
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:id="@+id/btn_guicmt"
+            android:layout_height="wrap_content"
+            android:text="Gửi"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

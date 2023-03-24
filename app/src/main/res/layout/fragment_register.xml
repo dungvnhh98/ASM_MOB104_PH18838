@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/til_dk_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="Tên tài khoản"
+                    android:id="@+id/edt_dk_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/til_dk_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="Họ Và Tên"
+                    android:id="@+id/edt_dk_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/til_dk_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="Email"
+                    android:id="@+id/edt_dk_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/til_dk_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="Mật Khẩu"
+                    android:id="@+id/edt_dk_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="đăng ký"
+                android:background="@drawable/buttom_bg"
+                android:layout_marginTop="50dp"
+                android:layout_marginHorizontal="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:id="@+id/btn_dk_signup"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+
+</FrameLayout>
