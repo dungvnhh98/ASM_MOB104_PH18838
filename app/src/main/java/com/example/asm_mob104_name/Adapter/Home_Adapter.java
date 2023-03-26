@@ -64,8 +64,8 @@ public class Home_Adapter extends BaseAdapter {
 
         Picasso.get().load(preferences.getString("LINKAPI", "") + truyens.get(i).anhBia).into(img_truyen);
         tv_tenTruyen.setText(truyens.get(i).tenTruyen);
-        tv_luotXem.setText(truyens.get(i).luotXem + "");
-        tv_luotthich.setText(""+truyens.get(i).luotThich.length);
+        tv_luotXem.setText("Lượt xem: "+truyens.get(i).luotXem);
+        tv_luotthich.setText("Lượt thích: "+truyens.get(i).luotThich.length);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

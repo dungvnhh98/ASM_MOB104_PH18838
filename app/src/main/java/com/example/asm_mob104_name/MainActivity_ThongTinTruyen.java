@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.asm_mob104_name.API.GetBinhLuan;
 import com.example.asm_mob104_name.API.PostBinhLuan;
+import com.example.asm_mob104_name.API.PostLuotXem;
 import com.example.asm_mob104_name.Mode.Truyen;
 import com.squareup.picasso.Picasso;
 
@@ -66,6 +67,8 @@ public class MainActivity_ThongTinTruyen extends AppCompatActivity {
         btn_doc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PostLuotXem postLuotXem = new PostLuotXem(MainActivity_ThongTinTruyen.this);
+                postLuotXem.execute(preferences.getString("LINKAPI", "") + "postluotxem");
                 Intent intent = new Intent(MainActivity_ThongTinTruyen.this, MainActivity_DocTruyen.class);
                 intent.putExtra("noidung", truyen.getNoiDung());
                 startActivity(intent);
