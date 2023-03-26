@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.asm_mob104_name.Adapter.BinhLuan_adapter;
-import com.example.asm_mob104_name.MainActivity_ThongTinTruyen;
+import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
 import com.example.asm_mob104_name.Mode.BinhLuan;
 
 import org.json.JSONArray;

@@ -1,16 +1,13 @@
 package com.example.asm_mob104_name.API;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.TextView;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.asm_mob104_name.Adapter.BinhLuan_adapter;
 import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
-import com.example.asm_mob104_name.Mode.BinhLuan;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,20 +23,21 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-public class PostBinhLuan extends AsyncTask<String, Void, String> {
+public class PostLuotThich extends AsyncTask<String, Integer, String> {
+    Context context;
+
     SharedPreferences preferences;
-    MainActivity_ThongTinTruyen context;
+    String idcomic;
 
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yyyy");
+    TextView tv_luotthich;
 
-    public PostBinhLuan(MainActivity_ThongTinTruyen context) {
+    public PostLuotThich(Context context, String idcomic, TextView tv_luotthich) {
         this.context = context;
+        this.idcomic = idcomic;
+        this.tv_luotthich = tv_luotthich;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -54,11 +52,8 @@ public class PostBinhLuan extends AsyncTask<String, Void, String> {
             connection.setRequestMethod("POST");
 
             JSONObject posData = new JSONObject();
-            posData.put("idcomic", context.truyen.getIdTruyen());
+            posData.put("idcomic", idcomic);
             posData.put("username", preferences.getString("USERNAME", ""));
-            posData.put("fullname", preferences.getString("FULLNAME", ""));
-            posData.put("noidung", context.edt_binhluan.getText().toString());
-            posData.put("thoigian", format.format(Calendar.getInstance().getTime()));
             connection.setRequestProperty("Content-Type", "application/json");
 
             OutputStream outputStream = connection.getOutputStream();
@@ -80,7 +75,7 @@ public class PostBinhLuan extends AsyncTask<String, Void, String> {
             reader.close();
             inputStream.close();
             connection.disconnect();
-            Log.d("post", "Backgroud tra về " + builder.toString());
+            Log.d("postluotthich", "Backgroud tra về " + builder.toString());
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -96,23 +91,13 @@ public class PostBinhLuan extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        context.edt_binhluan.setText("");
         try {
-            JSONArray array = new JSONArray(s);
-            List<BinhLuan> list = new ArrayList<>();
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject object = array.getJSONObject(i);
-                list.add(new BinhLuan(object.getString("idcomic"), object.getString("username"), object.getString("noidung"), format.parse(object.getString("thoigian")),object.getString("fullname")));
-            }
-            BinhLuan_adapter adapter = new BinhLuan_adapter(list, context);
-
-
-            LinearLayoutManager linearLayoutManagerTopSP = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-            context.rcv_bl.setLayoutManager(linearLayoutManagerTopSP);
-            context.rcv_bl.setAdapter(adapter);
+            JSONObject a = new JSONObject(s);
+            JSONArray b = a.getJSONArray("luotthich");
+            Log.d("TAG", "2: " + b.length());
+            tv_luotthich.setText("Lượt thích: " + b.length());
+            Log.d("TAG", "2: " + tv_luotthich.getText().toString());
         } catch (JSONException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
             throw new RuntimeException(e);
         }
 

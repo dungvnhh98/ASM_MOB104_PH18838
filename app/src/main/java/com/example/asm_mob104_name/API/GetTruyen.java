@@ -4,22 +4,17 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.asm_mob104_name.Adapter.Home_Adapter;
-import com.example.asm_mob104_name.HomeFragment;
-import com.example.asm_mob104_name.LogInFragment;
+import com.example.asm_mob104_name.Fragment.HomeFragment;
 import com.example.asm_mob104_name.Mode.Truyen;
-import com.example.asm_mob104_name.Mode.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;

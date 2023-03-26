@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Fragment;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.asm_mob104_name.API.PostDataRegister;
+import com.example.asm_mob104_name.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 

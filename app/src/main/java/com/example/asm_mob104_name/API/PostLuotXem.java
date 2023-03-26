@@ -1,18 +1,10 @@
 package com.example.asm_mob104_name.API;
 
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.asm_mob104_name.Adapter.BinhLuan_adapter;
 import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
-import com.example.asm_mob104_name.Mode.BinhLuan;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,21 +18,12 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
-public class PostBinhLuan extends AsyncTask<String, Void, String> {
-    SharedPreferences preferences;
+public class PostLuotXem extends AsyncTask<String, Integer, String> {
     MainActivity_ThongTinTruyen context;
 
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yyyy");
-
-    public PostBinhLuan(MainActivity_ThongTinTruyen context) {
+    public PostLuotXem(MainActivity_ThongTinTruyen context) {
         this.context = context;
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     @Override
@@ -55,10 +38,6 @@ public class PostBinhLuan extends AsyncTask<String, Void, String> {
 
             JSONObject posData = new JSONObject();
             posData.put("idcomic", context.truyen.getIdTruyen());
-            posData.put("username", preferences.getString("USERNAME", ""));
-            posData.put("fullname", preferences.getString("FULLNAME", ""));
-            posData.put("noidung", context.edt_binhluan.getText().toString());
-            posData.put("thoigian", format.format(Calendar.getInstance().getTime()));
             connection.setRequestProperty("Content-Type", "application/json");
 
             OutputStream outputStream = connection.getOutputStream();
@@ -96,23 +75,10 @@ public class PostBinhLuan extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        context.edt_binhluan.setText("");
         try {
-            JSONArray array = new JSONArray(s);
-            List<BinhLuan> list = new ArrayList<>();
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject object = array.getJSONObject(i);
-                list.add(new BinhLuan(object.getString("idcomic"), object.getString("username"), object.getString("noidung"), format.parse(object.getString("thoigian")),object.getString("fullname")));
-            }
-            BinhLuan_adapter adapter = new BinhLuan_adapter(list, context);
-
-
-            LinearLayoutManager linearLayoutManagerTopSP = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-            context.rcv_bl.setLayoutManager(linearLayoutManagerTopSP);
-            context.rcv_bl.setAdapter(adapter);
+            JSONObject a = new JSONObject(s);
+            context.tv_views.setText("Lượt xem: " + a.getInt("luotxem"));
         } catch (JSONException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
             throw new RuntimeException(e);
         }
 

@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asm_mob104_name.R;
 import com.example.asm_mob104_name.databinding.ActivityHomeBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

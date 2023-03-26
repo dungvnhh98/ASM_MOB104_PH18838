@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.GridView;
 
 import com.example.asm_mob104_name.Adapter.Home_Adapter;
 import com.example.asm_mob104_name.Mode.Truyen;
+import com.example.asm_mob104_name.R;
 
 import java.util.ArrayList;
 import java.util.List;

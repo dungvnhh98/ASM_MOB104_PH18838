@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import com.example.asm_mob104_name.Activity.MainActivity_DKDN;
+import com.example.asm_mob104_name.Activity.MainActivity_Home;
+import com.example.asm_mob104_name.R;
 
 
 public class CaNhan_Fragment extends Fragment {

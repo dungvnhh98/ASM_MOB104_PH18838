@@ -7,12 +7,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.asm_mob104_name.LogInFragment;
-import com.example.asm_mob104_name.MainActivity;
-import com.example.asm_mob104_name.MainActivity_Home;
-import com.example.asm_mob104_name.Mode.User;
+import com.example.asm_mob104_name.Fragment.LogInFragment;
+import com.example.asm_mob104_name.Activity.MainActivity_Home;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,8 +23,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PostDataLogin extends AsyncTask<String, Void, String> {
     SharedPreferences.Editor editor;

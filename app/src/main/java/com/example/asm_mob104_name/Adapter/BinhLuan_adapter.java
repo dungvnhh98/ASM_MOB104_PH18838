@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.asm_mob104_name.MainActivity_ThongTinTruyen;
+import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
 import com.example.asm_mob104_name.Mode.BinhLuan;
 import com.example.asm_mob104_name.R;
 

@@ -1,14 +1,14 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.view.WindowManager;
+
+import com.example.asm_mob104_name.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                editor.putString("LINKAPI", "https://33da-2405-4802-1c99-9b40-c022-e5f9-d9d6-240d.ap.ngrok.io/");
+                editor.putString("LINKAPI", "https://daec-123-16-53-190.ap.ngrok.io/");
                 editor.commit();
                 if(preferences.getString("USERNAME", "").equals("")){
                     Intent intent = new Intent(MainActivity.this, MainActivity_DKDN.class);

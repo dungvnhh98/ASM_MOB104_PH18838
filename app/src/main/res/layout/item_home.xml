@@ -35,18 +35,15 @@
             android:layout_gravity="center"
             android:weightSum="2"
             android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
             <LinearLayout
-
                 android:layout_width= "wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight="1"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-
                 >
                 <ImageView
-
-                    android:layout_width="30dp"
+                    android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/luotxem"/>
                 <TextView
@@ -61,26 +58,31 @@
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:layout_width= "wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity=""
-                    android:src="@drawable/yeu"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.20"
+                    android:scaleY="0.20"
+                    android:id="@+id/checkboxhome"
+                    android:layout_marginTop="-30dp"
+                    android:layout_marginRight="-30dp"
+                    android:layout_marginBottom="-30dp"
+                    android:layout_marginLeft="-40dp"
+                    android:button="@drawable/checkboxcustom"/>
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="24"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
                     android:id="@+id/item_luotthich"/>
 
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

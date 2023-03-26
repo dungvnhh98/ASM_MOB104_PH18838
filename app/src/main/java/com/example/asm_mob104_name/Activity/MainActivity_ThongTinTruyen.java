@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,13 +16,15 @@ import android.widget.Toast;
 
 import com.example.asm_mob104_name.API.GetBinhLuan;
 import com.example.asm_mob104_name.API.PostBinhLuan;
+import com.example.asm_mob104_name.API.PostLuotXem;
 import com.example.asm_mob104_name.Mode.Truyen;
+import com.example.asm_mob104_name.R;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity_ThongTinTruyen extends AppCompatActivity {
     Button btn_doc, btn_thich, btn_bl;
     public Truyen truyen;
-    TextView tv_ten, tv_tacgia, tv_namxb, tv_luotthich, tv_views, tv_mota;
+    public TextView tv_ten, tv_tacgia, tv_namxb, tv_luotthich, tv_views, tv_mota;
 
     public RecyclerView rcv_bl;
     public EditText edt_binhluan;
@@ -66,6 +68,8 @@ public class MainActivity_ThongTinTruyen extends AppCompatActivity {
         btn_doc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PostLuotXem postLuotXem = new PostLuotXem(MainActivity_ThongTinTruyen.this);
+                postLuotXem.execute(preferences.getString("LINKAPI", "") + "postluotxem");
                 Intent intent = new Intent(MainActivity_ThongTinTruyen.this, MainActivity_DocTruyen.class);
                 intent.putExtra("noidung", truyen.getNoiDung());
                 startActivity(intent);

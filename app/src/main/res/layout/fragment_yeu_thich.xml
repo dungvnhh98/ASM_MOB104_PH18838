@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YeuThich_Fragment">
+    tools:context=".Fragment.YeuThich_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <GridView

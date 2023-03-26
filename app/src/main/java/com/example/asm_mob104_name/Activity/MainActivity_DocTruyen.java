@@ -1,4 +1,4 @@
-package com.example.asm_mob104_name;
+package com.example.asm_mob104_name.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.example.asm_mob104_name.Adapter.Trang_truyen_Adapter;
+import com.example.asm_mob104_name.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

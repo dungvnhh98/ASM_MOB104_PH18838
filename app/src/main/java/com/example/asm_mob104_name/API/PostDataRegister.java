@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.asm_mob104_name.Mode.User;
-import com.example.asm_mob104_name.RegisterFragment;
+import com.example.asm_mob104_name.Fragment.RegisterFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;

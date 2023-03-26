@@ -1,16 +1,12 @@
 package com.example.asm_mob104_name.Adapter;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.asm_mob104_name.LogInFragment;
-import com.example.asm_mob104_name.RegisterFragment;
+import com.example.asm_mob104_name.Fragment.LogInFragment;
+import com.example.asm_mob104_name.Fragment.RegisterFragment;
 
 public class QL_DN_Adapter  extends FragmentStateAdapter {
 
