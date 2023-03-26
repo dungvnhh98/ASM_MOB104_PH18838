@@ -79,6 +79,14 @@ public class Home_Adapter extends BaseAdapter {
                 checkBox.setChecked(true);
             }
         }
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PostLuotThich postLuotThich = new PostLuotThich(context, truyen.getIdTruyen(),tv_luotthich);
+                postLuotThich.execute(preferences.getString("LINKAPI", "")+"postluotthich");
+
+            }
+        });
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,13 +95,7 @@ public class Home_Adapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PostLuotThich postLuotThich = new PostLuotThich(context, truyen.getIdTruyen(),tv_luotthich);
-                postLuotThich.execute(preferences.getString("LINKAPI", "")+"postluotthich");
-            }
-        });
+
         return view;
     }
 }

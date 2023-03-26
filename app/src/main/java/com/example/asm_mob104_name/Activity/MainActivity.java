@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                editor.putString("LINKAPI", "https://daec-123-16-53-190.ap.ngrok.io/");
+                editor.putString("LINKAPI", "https://ab46-123-16-53-190.ap.ngrok.io/");
                 editor.commit();
                 if(preferences.getString("USERNAME", "").equals("")){
                     Intent intent = new Intent(MainActivity.this, MainActivity_DKDN.class);
