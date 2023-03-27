@@ -24,6 +24,7 @@ import java.util.List;
 public class GetTruyen extends AsyncTask<String, Integer, String> {
     HomeFragment context;
 
+
     public GetTruyen(HomeFragment context) {
         this.context = context;
     }
@@ -77,19 +78,19 @@ public class GetTruyen extends AsyncTask<String, Integer, String> {
                 for (int j = 0; j < a.length(); j++) {
                     noidung.add(a.get(j).toString());
                 }
-                truyen.setNoiDung(noidung.toArray(new String[0]));
+                truyen.setNoiDung(noidung);
 
                 JSONArray b = new JSONArray(object.getString("luotthich"));
                 List<String> luotthich = new ArrayList<>();
                 for (int j = 0; j < b.length(); j++) {
                     luotthich.add(b.get(j).toString());
                 }
-                truyen.setLuotThich(luotthich.toArray(new String[0]));
+                truyen.setLuotThich(luotthich);
 
                 list.add(truyen);
             }
 
-            Home_Adapter home_adapter = new Home_Adapter(list, context.getContext());
+            Home_Adapter home_adapter = new Home_Adapter(list, context);
             context.gridView.setAdapter(home_adapter);
         } catch (JSONException e) {
             throw new RuntimeException(e);

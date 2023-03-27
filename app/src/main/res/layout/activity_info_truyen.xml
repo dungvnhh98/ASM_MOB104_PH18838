@@ -109,10 +109,12 @@
             <Button
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:textColor="@color/black"
                 android:layout_marginHorizontal="20dp"
                 android:background="@drawable/buttom_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16dp"
                 android:id="@+id/truyen_btn_doc"
                 android:text="đọc truyện"/>
 
@@ -129,6 +131,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/img_thich"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:layout_gravity="center"
@@ -142,7 +145,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="-40dp"
-                    android:textSize="15dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:text="YÊU THÍCH"/>
             </LinearLayout>

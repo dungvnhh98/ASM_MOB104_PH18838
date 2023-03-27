@@ -31,25 +31,25 @@ public class YeuThich_Fragment extends Fragment {
         gridView = view.findViewById(R.id.gv_YT);
         List<Truyen> truyens = new ArrayList<>();
 
-        Truyen truyen = new Truyen("hahaha",null,40,new String[]{"1","2"});
-        Truyen truyen1 = new Truyen("hahaha",null,40,null);
-
-        Truyen truyen2 = new Truyen("hahaha",null,40,null);
-
-
-        truyens.add(truyen);
-        truyens.add(truyen1);
-        truyens.add(truyen2);
-
-
-
-
-        Home_Adapter home_adapter = new Home_Adapter(truyens,getContext());
+//        Truyen truyen = new Truyen("hahaha",null,40,new String[]{"1","2"});
+//        Truyen truyen1 = new Truyen("hahaha",null,40,null);
+//
+//        Truyen truyen2 = new Truyen("hahaha",null,40,null);
+//
+//
+//        truyens.add(truyen);
+//        truyens.add(truyen1);
+//        truyens.add(truyen2);
 
 
 
 
-        gridView.setAdapter(home_adapter);
+//        Home_Adapter home_adapter = new Home_Adapter(truyens,this);
+
+
+
+
+//        gridView.setAdapter(home_adapter);
 
 
 
