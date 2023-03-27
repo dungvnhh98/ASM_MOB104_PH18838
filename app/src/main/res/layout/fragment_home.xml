@@ -16,7 +16,7 @@
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/home_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="160dp"
             app:iss_auto_cycle="true"
             app:iss_corner_radius="20"
             app:iss_delay="1000"

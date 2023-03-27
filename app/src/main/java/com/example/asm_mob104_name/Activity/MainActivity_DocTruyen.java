@@ -24,7 +24,7 @@ public class MainActivity_DocTruyen extends AppCompatActivity {
 
         rcv_truyen = findViewById(R.id.trangtruyen_rcv);
 
-        List<String> stringList = Arrays.asList(getIntent().getStringArrayExtra("noidung"));
+        List<String> stringList = getIntent().getStringArrayListExtra("noidung");
         Trang_truyen_Adapter trang_truyen_adapter = new Trang_truyen_Adapter(stringList,getApplicationContext());
 
 

@@ -15,9 +15,11 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.asm_mob104_name.API.GetTruyen;
+import com.example.asm_mob104_name.Mode.Truyen;
 import com.example.asm_mob104_name.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
