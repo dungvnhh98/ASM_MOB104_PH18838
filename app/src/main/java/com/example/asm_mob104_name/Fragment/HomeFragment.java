@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
     }
 
     public void updatetruyen(){
-        GetTruyen getTruyen = new GetTruyen(HomeFragment.this);
+        GetTruyen getTruyen = new GetTruyen(this);
         getTruyen.execute(preferences.getString("LINKAPI", "") + "gettruyen");
     }
 }

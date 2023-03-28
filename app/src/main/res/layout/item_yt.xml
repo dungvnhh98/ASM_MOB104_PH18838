@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/item_bg"
+    android:layout_height="200dp">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/lnear1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:id="@+id/itemyt_img"
+            android:scaleType = "centerInside"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TÊN TRUYỆN"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="#E40505"
+                android:id="@+id/itemyt_name"/>
+            <Button
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/buttom_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_doctiep"
+                android:textSize="16dp"
+                android:text="đọc tiếp"/>
+            <Button
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/buttom_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_doctudau"
+                android:textSize="16dp"
+                android:text="đọc từ đầu"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
