@@ -26,6 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
 import com.example.asm_mob104_name.Fragment.HomeFragment;
+import com.example.asm_mob104_name.Fragment.YeuThich_Fragment;
 import com.example.asm_mob104_name.Mode.Truyen;
 import com.example.asm_mob104_name.R;
 import com.squareup.picasso.Picasso;
@@ -42,7 +43,7 @@ import java.util.Map;
 
 public class Home_Adapter extends BaseAdapter {
     static List<Truyen> truyens;
-    HomeFragment context;
+    Context context;
     TextView tv_tenTruyen, tv_luotXem, tv_luotthich;
     LinearLayout linearLayout;
     CheckBox checkBox;
@@ -50,10 +51,10 @@ public class Home_Adapter extends BaseAdapter {
 
     SharedPreferences preferences;
 
-    public Home_Adapter(List<Truyen> truyens, HomeFragment context) {
+    public Home_Adapter(List<Truyen> truyens, Context context) {
         this.truyens = truyens;
         this.context = context;
-        preferences = PreferenceManager.getDefaultSharedPreferences(context.getContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class Home_Adapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
         if (view == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.item_home, null);
 
 
@@ -109,7 +110,7 @@ public class Home_Adapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context.getContext(), MainActivity_ThongTinTruyen.class);
+                Intent intent = new Intent(context, MainActivity_ThongTinTruyen.class);
                 intent.putExtra("truyen", truyen);
                 context.startActivity(intent);
             }
@@ -119,7 +120,7 @@ public class Home_Adapter extends BaseAdapter {
     }
 
     void postluotthich(int i) {
-        RequestQueue requestQueue = Volley.newRequestQueue(context.getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
 
         try {
             JSONObject a = new JSONObject();
