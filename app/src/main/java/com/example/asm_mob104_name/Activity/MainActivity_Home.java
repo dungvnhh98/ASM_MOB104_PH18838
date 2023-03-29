@@ -40,7 +40,6 @@ public class MainActivity_Home extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_YT, R.id.navigation_CN)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main3);
-
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 

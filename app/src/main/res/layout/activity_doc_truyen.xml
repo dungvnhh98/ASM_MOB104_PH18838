@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+     android:background="@color/black"
     tools:context=".Activity.MainActivity_DocTruyen">
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_doctruyen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/trangtruyen_rcv"/>
-
+        android:layout_height="match_parent"/>
 </LinearLayout>

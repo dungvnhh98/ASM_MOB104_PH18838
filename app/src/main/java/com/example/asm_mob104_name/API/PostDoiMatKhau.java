@@ -1,11 +1,15 @@
 package com.example.asm_mob104_name.API;
 
-import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
+import com.example.asm_mob104_name.Activity.MainActivity_DKDN;
+import com.example.asm_mob104_name.Activity.MainActivity_DoiMatKhau;
+import com.example.asm_mob104_name.Activity.MainActivity_Home;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,16 +25,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class PostLuotXem extends AsyncTask<String, Integer, String> {
-    Context context;
-    TextView tv_luotxem;
+public class PostDoiMatKhau extends AsyncTask<String, Void, String> {
+    SharedPreferences preferences;
 
-    String idcomic;
+    SharedPreferences.Editor editor;
 
-    public PostLuotXem(Context context, TextView tv_luotxem, String idcomic) {
+    MainActivity_DoiMatKhau context;
+
+    public PostDoiMatKhau(MainActivity_DoiMatKhau context) {
         this.context = context;
-        this.tv_luotxem = tv_luotxem;
-        this.idcomic = idcomic;
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        editor = preferences.edit();
     }
 
     @Override
@@ -44,18 +49,18 @@ public class PostLuotXem extends AsyncTask<String, Integer, String> {
             connection.setRequestMethod("POST");
 
             JSONObject posData = new JSONObject();
-            posData.put("idcomic", idcomic);
-            connection.setRequestProperty("Content-Type", "application/json");
+            posData.put("username",preferences.getString("USERNAME", ""));
+            posData.put("email",context.edt_email.getText().toString());
+            posData.put("password",context.edt_passcu.getText().toString());
+            posData.put("passmoi",context.edt_passmoi.getText().toString());
 
+            connection.setRequestProperty("Content-Type", "application/json");
             OutputStream outputStream = connection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
-
-
             bufferedWriter.append(posData.toString());
             bufferedWriter.flush();
             bufferedWriter.close();
             outputStream.close();
-
             InputStream inputStream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             builder = new StringBuilder();
@@ -66,7 +71,7 @@ public class PostLuotXem extends AsyncTask<String, Integer, String> {
             reader.close();
             inputStream.close();
             connection.disconnect();
-            Log.d("post", "Backgroud tra về " + builder.toString());
+            Log.d("doimatkhau", "Backgroud tra về " + builder.toString());
 
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -84,13 +89,16 @@ public class PostLuotXem extends AsyncTask<String, Integer, String> {
         super.onPostExecute(s);
         try {
             JSONObject a = new JSONObject(s);
-            if(tv_luotxem.getText().toString().contains("Lượt xem:")){
-                tv_luotxem.setText("Lượt xem: " + a.getInt("luotxem"));
+            if (a.getBoolean("check")){
+                editor.clear();
+                editor.commit();
+                context.startActivity(new Intent(context, MainActivity_DKDN.class));
+                Toast.makeText(context, "Đổi mật khẩu thành công!\nVui lòng đăng nhập lại.", Toast.LENGTH_SHORT).show();
+            }else{
+                context.til_email.setError("Sai mật khẩu hoặc email");
             }
-
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

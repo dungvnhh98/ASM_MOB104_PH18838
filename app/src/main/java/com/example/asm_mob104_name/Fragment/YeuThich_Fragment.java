@@ -35,9 +35,19 @@ public class YeuThich_Fragment extends Fragment {
         gridView = view.findViewById(R.id.gv_YT);
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        PostTruyenYT postTruyenYT = new PostTruyenYT(this);
-        postTruyenYT.execute(preferences.getString("LINKAPI", "")+"posttruyen");
+        update();
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        update();
+    }
+
+    void update(){
+        PostTruyenYT postTruyenYT = new PostTruyenYT(this);
+        postTruyenYT.execute(preferences.getString("LINKAPI", "")+"posttruyen");
     }
 }

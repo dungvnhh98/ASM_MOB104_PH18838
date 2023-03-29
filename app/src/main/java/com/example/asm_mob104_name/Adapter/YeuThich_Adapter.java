@@ -21,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.asm_mob104_name.API.PostLuotXem;
+import com.example.asm_mob104_name.Activity.MainActivity_DocTruyen;
 import com.example.asm_mob104_name.Activity.MainActivity_ThongTinTruyen;
 import com.example.asm_mob104_name.Mode.Truyen;
 import com.example.asm_mob104_name.R;
@@ -90,6 +92,25 @@ public class YeuThich_Adapter extends BaseAdapter {
             }
         });
 
+        btn_doctudau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PostLuotXem postLuotXem = new PostLuotXem(context, tv_tenTruyen, truyen.getIdTruyen());
+                postLuotXem.execute(preferences.getString("LINKAPI", "") + "postluotxem");
+                Intent intent = new Intent(context, MainActivity_DocTruyen.class);
+                intent.putExtra("truyen", truyen);
+                context.startActivity(intent);
+            }
+        });
+        btn_doctiep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MainActivity_DocTruyen.class);
+                intent.putExtra("truyen", truyen);
+                intent.putExtra("doctiep", true);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 

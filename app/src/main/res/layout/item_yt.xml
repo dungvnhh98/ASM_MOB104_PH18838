@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/item_bg"
-    android:layout_height="200dp">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_margin="10dp"
         android:orientation="horizontal"
@@ -14,14 +14,15 @@
 
         <ImageView
             android:layout_width="200dp"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:id="@+id/itemyt_img"
-            android:scaleType = "centerInside"
+            android:scaleType = "centerCrop"
             android:src="@drawable/ic_launcher_background"
             android:layout_gravity="center"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -35,6 +36,7 @@
             <Button
                 android:layout_gravity="center"
                 android:textColor="@color/black"
+                android:layout_marginVertical="20dp"
                 android:background="@drawable/buttom_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

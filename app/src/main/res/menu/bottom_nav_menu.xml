@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_YT"
-        android:icon="@drawable/checkboxcustom"
+        android:icon="@drawable/checkboxtrue"
         android:title="YÊU THÍCH" />
 
     <item
         android:id="@+id/navigation_CN"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/canhan"
         android:title="CÁ NHÂN" />
 
 </menu>
