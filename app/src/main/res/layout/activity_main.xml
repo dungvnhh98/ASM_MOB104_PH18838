@@ -7,9 +7,9 @@
     tools:context=".Activity.MainActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
-        android:src="@drawable/anhbia" />
+        android:src="@drawable/manhinhchao" />
 </FrameLayout>

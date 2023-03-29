@@ -1,37 +1,36 @@
 package com.example.asm_mob104_name.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
-import com.example.asm_mob104_name.Adapter.Trang_truyen_Adapter;
+import com.example.asm_mob104_name.Adapter.ViewPagerAdapter;
+import com.example.asm_mob104_name.Mode.Truyen;
 import com.example.asm_mob104_name.R;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity_DocTruyen extends AppCompatActivity {
-    RecyclerView rcv_truyen;
+    ViewPager2 vp_trangtruyen;
+    SharedPreferences preferences;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_truyen);
 
-        rcv_truyen = findViewById(R.id.trangtruyen_rcv);
+        vp_trangtruyen = findViewById(R.id.vp_doctruyen);
 
-        List<String> stringList = getIntent().getStringArrayListExtra("noidung");
-        Trang_truyen_Adapter trang_truyen_adapter = new Trang_truyen_Adapter(stringList,getApplicationContext());
+        Truyen truyen = (Truyen) getIntent().getSerializableExtra("truyen");
+        Boolean doctiep = getIntent().getBooleanExtra("doctiep", false);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-
-        LinearLayoutManager linearLayoutManagerTopSP = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        rcv_truyen.setLayoutManager(linearLayoutManagerTopSP);
-
-        rcv_truyen.setAdapter(trang_truyen_adapter);
-
+        vp_trangtruyen.setAdapter(new ViewPagerAdapter(truyen.noiDung, this, truyen.idTruyen));
+        if(doctiep){
+            vp_trangtruyen.setCurrentItem(preferences.getInt(truyen.idTruyen, 0)-1);
+        }
     }
 }

@@ -3,6 +3,9 @@ package com.example.asm_mob104_name.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -85,6 +88,25 @@ public class MainActivity_ThongTinTruyen extends AppCompatActivity {
 
         Picasso.get().load(preferences.getString("LINKAPI", "") + truyen.anhBia).into(img_anhbia);
 
+        if (preferences.getInt(truyen.idTruyen, 0) != 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Bạn đang đọc đến trang " + preferences.getInt(truyen.idTruyen, 0)+"\nBạn có muốn đọc tiếp không?")
+                    .setPositiveButton("Đọc tiếp", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(MainActivity_ThongTinTruyen.this, MainActivity_DocTruyen.class);
+                            intent.putExtra("doctiep", true);
+                            intent.putExtra("truyen", truyen);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+            builder.show();
+        }
 
         GetBinhLuan getBinhLuan = new GetBinhLuan(this);
         getBinhLuan.execute(preferences.getString("LINKAPI", "") + "getbinhluan");
@@ -92,11 +114,11 @@ public class MainActivity_ThongTinTruyen extends AppCompatActivity {
         btn_doc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PostLuotXem postLuotXem = new PostLuotXem(MainActivity_ThongTinTruyen.this);
+                PostLuotXem postLuotXem = new PostLuotXem(MainActivity_ThongTinTruyen.this, tv_views, truyen.getIdTruyen());
                 postLuotXem.execute(preferences.getString("LINKAPI", "") + "postluotxem");
                 Intent intent = new Intent(MainActivity_ThongTinTruyen.this, MainActivity_DocTruyen.class);
-                ArrayList<String> a = (ArrayList) truyen.getNoiDung();
-                intent.putStringArrayListExtra("noidung", a);
+
+                intent.putExtra("truyen", truyen);
                 startActivity(intent);
             }
         });
