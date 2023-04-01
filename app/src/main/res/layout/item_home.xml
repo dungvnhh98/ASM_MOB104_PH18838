@@ -19,7 +19,7 @@
             android:layout_height="300dp"
             android:id="@+id/iteam_img"
             android:scaleType = "centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/loading"
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="match_parent"
