@@ -24,6 +24,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:hint="Mật khẩu cũ"
             android:id="@+id/edt_passcu"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -36,6 +37,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:hint="Mật khẩu mới"
             android:id="@+id/edt_passmoi"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -48,6 +50,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:hint="Xác nhận mật khẩu mới"
             android:id="@+id/edt_passxacnhan"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,6 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:hint="Xác nhận email"
             android:id="@+id/edt_email"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>

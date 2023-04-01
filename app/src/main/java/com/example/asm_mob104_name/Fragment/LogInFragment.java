@@ -1,5 +1,6 @@
 package com.example.asm_mob104_name.Fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -11,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asm_mob104_name.API.PostDataLogin;
+import com.example.asm_mob104_name.Activity.MainActivity_QuenPass1;
 import com.example.asm_mob104_name.R;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -22,6 +25,8 @@ public class LogInFragment extends Fragment {
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Button btn_dn;
+
+    TextView tv_quenpass;
     public EditText edt_username,edt_password;
     public TextInputLayout til_username,til_password;
     int check;
@@ -41,20 +46,25 @@ public class LogInFragment extends Fragment {
         til_username = root.findViewById(R.id.til_dn_name);
         til_password = root.findViewById(R.id.til_dn_pass);
         btn_dn = root.findViewById(R.id.btn_dn_login);
+        tv_quenpass = root.findViewById(R.id.tv_dn_qmk);
 
         btn_dn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Check();
                 if(Check()!= 0){
-                    Toast.makeText(getContext(), "Thông Tin Thiếu", Toast.LENGTH_SHORT).show();
                 }else {
                     PostDataLogin login = new PostDataLogin(LogInFragment.this);
                     login.execute(preferences.getString("LINKAPI", "") + "login");
                 }
             }
         });
-
+        tv_quenpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), MainActivity_QuenPass1.class));
+            }
+        });
 
         return root;
 

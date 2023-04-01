@@ -17,7 +17,7 @@
             android:layout_height="200dp"
             android:id="@+id/itemyt_img"
             android:scaleType = "centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/loading"
             android:layout_gravity="center"/>
         <LinearLayout
             android:layout_width="match_parent"

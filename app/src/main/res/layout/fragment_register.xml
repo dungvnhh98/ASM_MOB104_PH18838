@@ -68,11 +68,24 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:hint="Mật Khẩu"
+                    android:inputType="textPassword"
                     android:id="@+id/edt_dk_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/til_dk_passxn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="Xác Nhận Mật Khẩu"
+                    android:id="@+id/edt_dk_passwordxn"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:textStyle="bold"
                 android:textSize="20dp"
