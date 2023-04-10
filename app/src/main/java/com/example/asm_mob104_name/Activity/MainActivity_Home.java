@@ -100,8 +100,10 @@ public class MainActivity_Home extends AppCompatActivity {
                         JSONArray a = new JSONArray(data.getString("data"));
                         for (int i = 0; i < a.length(); i++) {
                             JSONObject b = a.getJSONObject(i);
-                            ThongBao thongBao = new ThongBao(b.getString("_id"), b.getString("username"), b.getString("idcomic"), b.getBoolean("check"), format.parse(b.getString("thoigian")), b.getString("_id"));
-                            list.add(thongBao);
+                            if(b.getString("username").equals(preferences.getString("USERNAME", ""))){
+                                ThongBao thongBao = new ThongBao(b.getString("_id"), b.getString("username"), b.getString("idcomic"), b.getBoolean("check"), format.parse(b.getString("thoigian")), b.getString("_id"));
+                                list.add(thongBao);
+                            }
                         }
                     } catch (JSONException e) {
                         return;
